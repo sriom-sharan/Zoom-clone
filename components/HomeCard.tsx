@@ -1,0 +1,35 @@
+import React from 'react'
+import Image from "next/image";
+
+interface HomeCardProps {
+    className?: string;
+    img: string;
+    title: string;
+    description: string;
+    handleClick?: () => void;
+  }
+
+const HomeCard = ({title,description,img,className,handleClick}:HomeCardProps) => {
+  return (
+    <div
+    className={`${className} px-4 py-6 flex flex-col w-full xl:max-w-[280px] min-h-[260px] rounded-[14px] cursor-pointer justify-between`}
+    onClick={handleClick}
+  >
+    <div className="flex-center glassmorphism size-12 rounded-xl">
+      <Image
+        src={img}
+        alt="meeting"
+        width={27}
+        height={27}
+      />
+    </div>
+
+    <div className="flex flex-col gap-2">
+      <h1 className="text-2xl font-bold">{title}</h1>
+      <p className="text-lg font-normal">{description}</p>
+    </div>
+  </div>
+  )
+}
+
+export default HomeCard
